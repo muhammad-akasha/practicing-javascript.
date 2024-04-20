@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        background: crimson;
+        font-family: sans-serif;
+      }
+      span {
+        font-size: 30px;
+        color: aqua;
+        margin-top: 15px;
+        display: block;
+        margin: 15px auto;
+        text-align: center
+      }
+      form input {
+        width: 250px;
+        height: 30px;
+        border-color: red;
+        text-align: center;
+        display: block;
+       margin: 0px auto
+      }
+      #formInput button {
+        padding: 10px 20px;
+        height: 50px;
+        color: green;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+      }
+      ol {
+        list-style: none;
+        font-size: 30px;
+        text-align: center;
+      }
+      li {
+        font-family: monospace;font-weight: 600
+      }
+      h3,
+      h2,
+      h1 {
+        text-align: center;
+      }
+      #form2 button,
+      #percentCalcu button {
+        padding: 10px 30px;
+        display: block;
+        margin: 20px auto;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="formInput">
+      <span>enter the table number : </span>
+      <input required type="number" name="tableInput" id="tableInput" />
+      <br />
+      <span>enter the table tableLength : </span>
+      <input required type="number" name="tableLength" id="tableLength" />
+      <br />
+      <button type="submit">Generate Table</button>
+    </form>
+
+    <div id="outputtable"></div>
+
+    <form id="form2">
+      <h3>enter Calcuius</h3>
+      <input required type="number" name="celcius" id="celcius" />
+      <h3>enter fehreheit</h3>
+      <input required type="number" name="fehreheit" id="fehreheit" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="outputofcelcius"></div>
+
+    <form id="percentCalcu">
+      <h3>
+        Enter Subject One Obtained Marks
+      </h3>
+      <input required type="number" name="SubjectOne" id="SubjectOne" />
+      <h3>
+        Enter Subject Two Obtained Marks
+      </h3>
+      <input required type="number" name="SubjectTwo" id="SubjectTwo" />
+      <h3>
+        Enter Subject Three Obtained Marks
+      </h3>
+      <input required type="number" name="SubjectThree" id="SubjectThree" />
+      <button type="submit">click For Calculation</button>
+    </form>
+
+    <div id="percentage"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
