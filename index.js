@@ -1,3 +1,83 @@
+function myTimer() {
+  const date = new Date();
+  let todayDate = date.getDate();
+
+  let dayArr = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = dayArr[date.getDay()];
+
+  let months = [
+    "January",
+    "Feburary",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let month = months[date.getMonth()];
+
+  let year = date.getFullYear();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  let timePeriod ;
+
+  if  (hours >= 12){
+    timePeriod = "PM"
+  }else{
+    timePeriod = "AM"
+  }
+  if (hours >= 12){
+    hours = hours % 12
+  }else{
+    hours = hours
+  }
+  if (hours === 0 ){
+    hours = 12
+  }else{
+    hours = hours
+  }
+  if (minutes <= 9) {
+    minutes = "0" + minutes;
+  } else {
+    minutes = minutes;
+  }
+  if (seconds <= 9) {
+    seconds = "0" + seconds;
+  } else {
+    seconds = seconds;
+  }
+
+  document.getElementById("date").innerHTML =
+    "<h2 class='date'> DATE : " +day +", " +month +" " +todayDate +", " +year +"<br>TIME : " +hours +" : " +minutes +" : " +seconds + " " + timePeriod +"</h2>";
+}
+setInterval(myTimer, 1000);
+
+let repeatedWord = "I felt happy because I saw the others were happy and because I knew I should feel happy, but I wasn't really happy. "
+
+for (let i = 0 ; i < repeatedWord.length ; i++){
+  if (repeatedWord.slice(i , i + 5) === "happy"){
+   repeatedWord = repeatedWord.slice(0 , i ) + "sad" +  repeatedWord.slice(i + 5);
+  }
+}
+console.log(repeatedWord);
+  
+
 // let table = 7; // table of 7
 // for (let i = 1; i <= 10; i++) {
 //   tableOf7 = table * i;
@@ -16,11 +96,10 @@
 // let celcius = 25;
 // let fehraheit = 70;
 
-
 // function calcuCelciAndFerh() {
-  //   celcius = ((fehraheit - 32) * 5) / 9;
-  //   console.log(celcius + "\xB0C");
-  //   fehraheit = (celcius * 9) / 5 + 32;
+//   celcius = ((fehraheit - 32) * 5) / 9;
+//   console.log(celcius + "\xB0C");
+//   fehraheit = (celcius * 9) / 5 + 32;
 //   console.log(fehraheit + "\xB0F");
 // }
 // calcuCelciAndFerh();
@@ -29,7 +108,7 @@
 // pi = 3.142;
 
 // function calcuCircumAndArea() {
-  //   circumstanceOfCircle = 2 * pi * radius;
+//   circumstanceOfCircle = 2 * pi * radius;
 //   console.log(circumstanceOfCircle);
 //   areaOfCircle = pi * radius ** 2;
 //   console.log(areaOfCircle);
@@ -41,16 +120,15 @@
 // let tab = Number(prompt("enter a number"));
 
 // for (let i = 1; i <= 10; i++){
-  // if (!isNaN(tab)) {
-    //   $table = tab * i ;
-    //   console.log($table)
-    // } else {
-      //     $tab = 5 * i;
-      //     console.log($tab);
-      //   }
-      // }
-      
-      
+// if (!isNaN(tab)) {
+//   $table = tab * i ;
+//   console.log($table)
+// } else {
+//     $tab = 5 * i;
+//     console.log($tab);
+//   }
+// }
+
 // let totalMark = 100;
 // let studentObt1 = +prompt("enter Obtained marks");
 // let studentObt2 = +prompt("enter Obtained marks");
@@ -71,184 +149,182 @@
 // plusVal = (plusVal / 300 ) * 100;
 
 // if (plusVal.toString().length > 2){
-  //   plusVal =  plusVal.toFixed(2)
-  //    console.log(plusVal);
-  //  }else{
-    //    console.log(plusVal);
-    //  }
-    
-    
-    // if (plusVal >= 80){
-      //   console.log("A")
-      // }else if (plusVal >= 70){
-        //   console.log("b")
-        // }else if (plusVal >= 60){
-          //   console.log("c")
-          // }else if (plusVal < 60){
-            //   console.log("fail")
-            // }else{
-              //   console.log("wrong value")
-              // }
-              
-              // let gameNum = 8;
-              
-              // while (true) {
-                //   let guess = +prompt("guess number");
-                //   if (gameNum === guess) {
-                  //     alert("correct");
-                  //     break;
-                  //   } else if (gameNum === guess + 1 || gameNum === guess - 1) {
-                    //     alert("close enough to guess");
-                    //   } else if (isNaN(guess)){
-                      //     alert("invalid Value");
-                      //   }else if (gameNum !== guess) {
-                        //      alert("guess again");
+//   plusVal =  plusVal.toFixed(2)
+//    console.log(plusVal);
+//  }else{
+//    console.log(plusVal);
+//  }
+
+// if (plusVal >= 80){
+//   console.log("A")
+// }else if (plusVal >= 70){
+//   console.log("b")
+// }else if (plusVal >= 60){
+//   console.log("c")
+// }else if (plusVal < 60){
+//   console.log("fail")
 // }else{
-  //   alert("try again")
-  // }
-  // }
-  
-  // let checkDivisibleOf3 = prompt("enter any number");
-  
-  // if (checkDivisibleOf3 % 3 === 0){
-    //   console.log("divisible of 3");
-    // }else{
-      //   console.log("not divisible of 3")
-      // }
-      
-      // let checkOddOrEven = prompt("enter any number");
-      
-      // if (checkOddOrEven % 2 === 0){
-        //   console.log("even");
-        // }else{
-          //   console.log("odd")
-          // }
-          
+//   console.log("wrong value")
+// }
+
+// let gameNum = 8;
+
+// while (true) {
+//   let guess = +prompt("guess number");
+//   if (gameNum === guess) {
+//     alert("correct");
+//     break;
+//   } else if (gameNum === guess + 1 || gameNum === guess - 1) {
+//     alert("close enough to guess");
+//   } else if (isNaN(guess)){
+//     alert("invalid Value");
+//   }else if (gameNum !== guess) {
+//      alert("guess again");
+// }else{
+//   alert("try again")
+// }
+// }
+
+// let checkDivisibleOf3 = prompt("enter any number");
+
+// if (checkDivisibleOf3 % 3 === 0){
+//   console.log("divisible of 3");
+// }else{
+//   console.log("not divisible of 3")
+// }
+
+// let checkOddOrEven = prompt("enter any number");
+
+// if (checkOddOrEven % 2 === 0){
+//   console.log("even");
+// }else{
+//   console.log("odd")
+// }
+
 //   codes:- A=65, Z=90, a=97, z=122 0 = 48 ,9=57).
 
 // function checkAlphabetCase() {
-  //   let checkCapOrLow = prompt("Enter Any One Alphabet");
-  //   console.log(checkCapOrLow, "entered alphabet");
-  //   checkCapOrLow = checkCapOrLow.charCodeAt();
-  //   console.log(checkCapOrLow + " entered alphabet charCode");
-  //   if (checkCapOrLow >= 65 && checkCapOrLow <= 90) {
-  //     console.log("capital letter");
-  //   } else if (checkCapOrLow >= 97 && checkCapOrLow <= 122) {
-  //     console.log("small letter");
-  //   }
-  //   else if (checkCapOrLow >= 48 && checkCapOrLow <= 57){
-  //   alert("number")
-  //   } else {
-    //     console.log("invalid");
-    //   }
-    // }
-    // checkAlphabetCase();
-    
-    // let vovel = "aeiou";
-    // let checkword = prompt("enter an alphabet");
-    // function checkVovel() {
-    //   console.log(vovel);
-    //   checkword = checkword.toLowerCase();
-    //   found = false;
-    //   if (checkword.length > 1){
-    //     alert("you have to enter only one word");
-    //   }
-    //   for (let i = 0; i < vovel.length; i++) {
-    //     if (checkword === vovel[i] && checkword.length === 1) {
-      //       alert("vovel word");
-      //       found = true;
-      //       break;
-      //     }
-      //   }
-      //   if (!found && checkword.length === 1) {
-  //     alert("not vovel");
-  //   }
-  // }
-  // checkVovel();
-  
-  // let time = prompt("enter time in 24 hour format");
-                    
-  // let slice_ = time.slice(0,2);
-  // let lastTwo = time.slice(-2);
-  // // alert(slice_);
-                    
-  // if (slice_ >= 12 && slice_ <= 23){
-    //   slice_ = slice_ % 12;
-    //   alert(slice_ + ":" + lastTwo + "PM");
-    // }else{
-      //   alert(slice_ + ":" + lastTwo + "PM");
-      // }
-                        
-                        
-      // let currTime = parseInt(prompt("enter current time only hour i will convert in 12 hour format"));
-      // function timeFormater() {
-        //   if (isNaN(currTime) || currTime >= 24){
+//   let checkCapOrLow = prompt("Enter Any One Alphabet");
+//   console.log(checkCapOrLow, "entered alphabet");
+//   checkCapOrLow = checkCapOrLow.charCodeAt();
+//   console.log(checkCapOrLow + " entered alphabet charCode");
+//   if (checkCapOrLow >= 65 && checkCapOrLow <= 90) {
+//     console.log("capital letter");
+//   } else if (checkCapOrLow >= 97 && checkCapOrLow <= 122) {
+//     console.log("small letter");
+//   }
+//   else if (checkCapOrLow >= 48 && checkCapOrLow <= 57){
+//   alert("number")
+//   } else {
+//     console.log("invalid");
+//   }
+// }
+// checkAlphabetCase();
+
+// let vovel = "aeiou";
+// let checkword = prompt("enter an alphabet");
+// function checkVovel() {
+//   console.log(vovel);
+//   checkword = checkword.toLowerCase();
+//   found = false;
+//   if (checkword.length > 1){
+//     alert("you have to enter only one word");
+//   }
+//   for (let i = 0; i < vovel.length; i++) {
+//     if (checkword === vovel[i] && checkword.length === 1) {
+//       alert("vovel word");
+//       found = true;
+//       break;
+//     }
+//   }
+//   if (!found && checkword.length === 1) {
+//     alert("not vovel");
+//   }
+// }
+// checkVovel();
+
+// let time = prompt("enter time in 24 hour format");
+
+// let slice_ = time.slice(0,2);
+// let lastTwo = time.slice(-2);
+// // alert(slice_);
+
+// if (slice_ >= 12 && slice_ <= 23){
+//   slice_ = slice_ % 12;
+//   alert(slice_ + ":" + lastTwo + "PM");
+// }else{
+//   alert(slice_ + ":" + lastTwo + "PM");
+// }
+
+// let currTime = parseInt(prompt("enter current time only hour i will convert in 12 hour format"));
+// function timeFormater() {
+//   if (isNaN(currTime) || currTime >= 24){
 //     console.log("invalid or entered wrong time")
 //   }
 //   if (currTime === 0) {
 //     console.log( "12am")}
 //    else if (currTime === 12) {
-  //       console.log( "12pm")
-  //   } else if (currTime >= 12 && currTime <= 23) {
-    //     currTime = currTime % 12;
-    //     console.log(currTime + "pm");
-    //   }
-    // }
-    
-    // timeFormater();
-    
-    // let carsName = ["civic", "corola"];
-    
-    // console.log(carsName);
-    
-    // carsName.push("mitsubhi");
-    // carsName.unshift("alto");
-    // carsName.splice(3, 0, "vitz", "cuore", "city");
-    // console.log(carsName);
-    // let removeLast = carsName.pop();
-    // console.log("removing last using pop", removeLast);
-    // console.log(carsName);
-    // let removefirst = carsName.shift();
-    // console.log("removing first using shift", removefirst);
-    // console.log(carsName);
-    // let newCar = carsName.slice();
-    // console.log("this is a copy of cars array ", newCar);
-    // newCar.reverse();
-    // console.log("after reverse ", newCar);
-    // console.log(newCar.indexOf("civic"));
-    // console.log(newCar.join(",")); // to convert array in string with add between , comma.
-    // // console.log(carsName.concat("mehran"));
-    // console.log(carsName);
-    
-    // // entries return a pair of 1 val example index no + val
-    
-    // let val = carsName.entries();
-    // console.log(val.next().value);
-    
-    // for (let [elem, index] of carsName.entries()) {
-      //   console.log(elem, index);
-      // }
-      
-      // for (let elem of val) {
-        //   console.log(elem);
-        // }
-        
-        // // copywithin first val is for index second for startcopy and third for end. its not decrease it length ..
-        // console.log(carsName.copyWithin(0, 4));
-        
-        // console.log(carsName.at(-3)); // return the value by its index.  - mean at last index of value is -1..
-        
-        // let numbers = [1, 2, 3, 4, 5, 6, 10, 29, 39];
-        
-        // console.log(Math.max(...numbers));
-        // console.log(Math.min(...numbers));
-        
-        // let ar = numbers.map((n) => n * 10);
-        // console.log(ar);
-        
-        // function checkEveryVal(value) {
-          //   return  value <= 39
-          
+//       console.log( "12pm")
+//   } else if (currTime >= 12 && currTime <= 23) {
+//     currTime = currTime % 12;
+//     console.log(currTime + "pm");
+//   }
+// }
+
+// timeFormater();
+
+// let carsName = ["civic", "corola"];
+
+// console.log(carsName);
+
+// carsName.push("mitsubhi");
+// carsName.unshift("alto");
+// carsName.splice(3, 0, "vitz", "cuore", "city");
+// console.log(carsName);
+// let removeLast = carsName.pop();
+// console.log("removing last using pop", removeLast);
+// console.log(carsName);
+// let removefirst = carsName.shift();
+// console.log("removing first using shift", removefirst);
+// console.log(carsName);
+// let newCar = carsName.slice();
+// console.log("this is a copy of cars array ", newCar);
+// newCar.reverse();
+// console.log("after reverse ", newCar);
+// console.log(newCar.indexOf("civic"));
+// console.log(newCar.join(",")); // to convert array in string with add between , comma.
+// // console.log(carsName.concat("mehran"));
+// console.log(carsName);
+
+// // entries return a pair of 1 val example index no + val
+
+// let val = carsName.entries();
+// console.log(val.next().value);
+
+// for (let [elem, index] of carsName.entries()) {
+//   console.log(elem, index);
+// }
+
+// for (let elem of val) {
+//   console.log(elem);
+// }
+
+// // copywithin first val is for index second for startcopy and third for end. its not decrease it length ..
+// console.log(carsName.copyWithin(0, 4));
+
+// console.log(carsName.at(-3)); // return the value by its index.  - mean at last index of value is -1..
+
+// let numbers = [1, 2, 3, 4, 5, 6, 10, 29, 39];
+
+// console.log(Math.max(...numbers));
+// console.log(Math.min(...numbers));
+
+// let ar = numbers.map((n) => n * 10);
+// console.log(ar);
+
+// function checkEveryVal(value) {
+//   return  value <= 39
+
 // }
 
 // alert(numbers.every(checkEveryVal)); // check every value greater or less then return true or false by callback function..
@@ -258,28 +334,28 @@
 // console.log(numbers.sort());
 
 // function forFilter(val) {
-  //   return val - 30;
-  // }
-  // console.log(numbers.filter(forFilter)); // work on call back function;
-  
-  // let obj = { name: "akasha", age: 23 };
-  // Object.keys(obj).forEach((val) => console.log(val));
-  // Object.entries(obj).forEach((val) => console.log(val));
-  // Object.entries(obj).forEach(([key, value]) => {
-    //   console.log(key + ' ' + value);
-    // });
-    // console.log(numbers.includes(30));
-    
-    // let array_ = [20,10,2, [2,[2,[3]]],[10,[10,[20]]] , [20] ];
-    
-    // // console.log(array_.flat(1));
-    // console.log(array_.flat(Infinity));
-    
-    // let tabInput = +prompt("enter a number for table");
-    // let tableLength = +prompt("enter length of table");
-    
-    // for (let i = 1 ; i <= tableLength ; i++){
-      //  table = tabInput * i ;
+//   return val - 30;
+// }
+// console.log(numbers.filter(forFilter)); // work on call back function;
+
+// let obj = { name: "akasha", age: 23 };
+// Object.keys(obj).forEach((val) => console.log(val));
+// Object.entries(obj).forEach((val) => console.log(val));
+// Object.entries(obj).forEach(([key, value]) => {
+//   console.log(key + ' ' + value);
+// });
+// console.log(numbers.includes(30));
+
+// let array_ = [20,10,2, [2,[2,[3]]],[10,[10,[20]]] , [20] ];
+
+// // console.log(array_.flat(1));
+// console.log(array_.flat(Infinity));
+
+// let tabInput = +prompt("enter a number for table");
+// let tableLength = +prompt("enter length of table");
+
+// for (let i = 1 ; i <= tableLength ; i++){
+//  table = tabInput * i ;
 //   console.log(table);
 // }
 
@@ -298,22 +374,21 @@
 // substr() function return all the character by giving its index mean if 0 index add . its show all the characters. ;
 
 // function toTitleCase(sentence) {
-  //   return sentence.replace(/\b\w+\b/g, function(text) {
-    //     return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
-    //   });
-    // }
-    
-    // console.log(toTitleCase(word));
-    
-    // let spec =  ["@","!",".", ","]
-    // console.log(spec)
-    // let input = prompt ("enter password")
-    
-    
-    // while (true) {
+//   return sentence.replace(/\b\w+\b/g, function(text) {
+//     return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
+//   });
+// }
+
+// console.log(toTitleCase(word));
+
+// let spec =  ["@","!",".", ","]
+// console.log(spec)
+// let input = prompt ("enter password")
+
+// while (true) {
 //   let found = false
 //   for (let i = 0 ; i < input.length ; i++){
-  //     if (spec.includes(input[i])){
+//     if (spec.includes(input[i])){
 //       alert("correct");
 //       found = true;
 
@@ -617,8 +692,6 @@ function longWord(word) {
 }
 longWord(checkLong);
 
-
-
 // function checkLongestStr(findLongest) {
 //   let words = findLongest.split(" ");
 
@@ -824,82 +897,242 @@ longWord(checkLong);
 // //     alert("Correct")
 // // }
 
-
 let formInput = document.getElementById("formInput");
 let outputtable = document.getElementById("outputtable");
 
-formInput.addEventListener("submit",function(event){
-event.preventDefault(); // Prevent default form submission behavior
+formInput.addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission behavior
 
-let tableInput = parseInt(document.getElementById("tableInput").value);
-let tableLength = parseInt(document.getElementById("tableLength").value)
+  let tableInput = parseInt(document.getElementById("tableInput").value);
+  let tableLength = parseInt(document.getElementById("tableLength").value);
 
-tableHtml = "<h1> Table </h1> <ol>"
-for (let i = 1 ; i <= tableLength ; i++){
-  table = tableInput * i ;
-  if (i <= 9){
-    i = "0" + i;
-  }else{
-    i = i
+  tableHtml = "<h1> Table </h1> <ol>";
+  for (let i = 1; i <= tableLength; i++) {
+    table = tableInput * i;
+    if (i <= 9) {
+      i = "0" + i;
+    } else {
+      i = i;
+    }
+    if (table <= 9) {
+      table = "0" + table;
+    } else {
+      table = table;
+    }
+    tableHtml +=
+      "<li>" +
+      tableInput +
+      "&nbsp;" +
+      " * " +
+      "&nbsp;" +
+      i +
+      " = " +
+      "&nbsp;" +
+      table +
+      "</li>";
   }
-  if (table <= 9){
-    table = "0" + table;
-  }else{
-    table = table
-  }
-  tableHtml += "<li>" + tableInput +  "&nbsp;"  + " * " + "&nbsp;"+ i + " = " +  "&nbsp;" + table + "</li>" ;
-}
-tableHtml += "</ol>"
+  tableHtml += "</ol>";
 
-outputtable.innerHTML = tableHtml
+  outputtable.innerHTML = tableHtml;
 });
 
 let form2 = document.getElementById("form2");
 let outputofcelcius = document.getElementById("outputofcelcius");
 
-form2.addEventListener("submit",function (event) {
-event.preventDefault()
+form2.addEventListener("submit", function(event) {
+  event.preventDefault();
 
-let celcius = parseInt(document.getElementById("celcius").value);
-let fehreheit= parseInt(document.getElementById("fehreheit").value);
+  let celcius = parseInt(document.getElementById("celcius").value);
+  let fehreheit = parseInt(document.getElementById("fehreheit").value);
 
-let pr = "<h2> After Calculate Celcius And Fehreheit </h2>"
-celcius = ((fehreheit - 32) * 5) / 9;
- let one = (celcius + "\xB0C");
+  let pr = "<h2> After Calculate Celcius And Fehreheit </h2>";
+  celcius = ((fehreheit - 32) * 5) / 9;
+  let one = celcius + "\xB0C";
   fehraheit = (celcius * 9) / 5 + 32;
-  let two = (fehreheit + "\xB0F");
-  
+  let two = fehreheit + "\xB0F";
 
-
-outputofcelcius.innerHTML = pr + "<h2> Celcius Is " + one + "</h2>" + "<h2> Fehreheit is " + two + "</h2>"
-
+  outputofcelcius.innerHTML =
+    pr +
+    "<h2> Celcius Is " +
+    one +
+    "</h2>" +
+    "<h2> Fehreheit is " +
+    two +
+    "</h2>";
 });
 
 let calculatePercent = document.getElementById("percentCalcu");
 let percentage = document.getElementById("percentage");
 
-calculatePercent.addEventListener("submit" , function(event){
+calculatePercent.addEventListener("submit", function(event) {
   event.preventDefault();
-  
-  let getOb1 =  document.getElementById("SubjectOne").value;
+
+  let getOb1 = document.getElementById("SubjectOne").value;
   let getOb2 = document.getElementById("SubjectTwo").value;
   let getOb3 = document.getElementById("SubjectThree").value;
-  
-if (getOb1.toString().length > 2 || getOb2.toString().length > 2 || getOb3.toString().length > 2){
-  alert("please enter only 2 or three number beacause total marks is 100 for each subject")
-}else{
-  let adding = parseInt(getOb1) + parseInt(getOb2) + parseInt(getOb3);
-  
-  let percent = (adding / 300) * 100;
 
-  if (percent.toString().length > 2){
-    percent = percent.toFixed(2);
-  }else{
-    percent = percent
+  if (
+    getOb1.toString().length > 2 ||
+    getOb2.toString().length > 2 ||
+    getOb3.toString().length > 2
+  ) {
+    alert(
+      "please enter only 2 or three number beacause total marks is 100 for each subject"
+    );
+  } else {
+    let adding = parseInt(getOb1) + parseInt(getOb2) + parseInt(getOb3);
+
+    let percent = (adding / 300) * 100;
+
+    if (percent.toString().length > 2) {
+      percent = percent.toFixed(2);
+    } else {
+      percent = percent;
+    }
+    percentage.innerHTML =
+      "<h2> subject 1 obtained : " +
+      getOb1 +
+      " , subject 2 obtained : " +
+      getOb2 +
+      " and subject 3 obtained : " +
+      getOb3 +
+      "<br>" +
+      " After Calculation Percentage of All Subject Is " +
+      percent;
   }
-  percentage.innerHTML = "<h2> subject 1 obtained : " + getOb1 + " , subject 2 obtained : " + getOb2 + 
-  " and subject 3 obtained : " + getOb3 + "<br>" + " After Calculation Percentage of All Subject Is " + percent;
-} 
 });
+
+// let palindrome = ["car","racecar","madam"];
+
+// for (let i = 0 ; i < palindrome.length ; i++){
+//   word = palindrome[i]
+//   let palindrome_reverse = word.split("").reverse().join("");
+//   if (word === palindrome_reverse){
+//     console.log(word + " yes ")
+//   }else{
+//     console.log(word + " no ")
+//   }
+// }
+
+// let palindrome = "car,racecar,madam";
+
+// let palindromeSeperate = palindrome.split(",");
+
+// palindromeSeperate.forEach(palindromeSeperat => {
+//   let palindrome_reverse = palindromeSeperat.split("").reverse().join("");
+
+//   if (palindromeSeperat === palindrome_reverse){
+//     console.log(palindromeSeperat + " yes ");
+//   }else{
+//     console.log(palindromeSeperat + " no ");
+//   }
+// });
+
+// let palindrome = "A man@# a plan a canal Panama";
+
+// function isPalindromeS (palindrome){
+// let removeNonAlpha = palindrome.replace(/[^a-z]/ig , "")
+// let sentence = removeNonAlpha.toLowerCase();
+// let isPalindrome = true;
+// for(let i = 0 ; i < sentence.length / 2 ; i++){
+//   if (sentence[i] !== sentence[sentence.length - 1 - i]){
+//     isPalindrome = false;
+//     break;
+//   }
+// }
+
+// if (isPalindrome) {
+//   console.log("'" + sentence + "' is a palindrome.");
+// } else {
+//   console.log("'" + sentence + "' is not a palindrome.");
+// }
+// }
+
+// let sentences = [
+//   "A man, a plan, a canal, Panama",
+//   "Was it a car or a cat I saw?",
+//   "Madam, in Eden, I'm Adam"
+// ];
+
+// sentences.forEach(sentence => {
+// isPalindromeS(sentence);
+// });
+
+let num = [1, 12, 3, 4, 4, 4, 4, 43, 34, 13, 12, 3, 23];
+
+console.log(Math.max(...num));
+console.log(Math.min(...num));
+// console.log(Math.max.apply(null,num))
+
+// let chvovel = prompt("check Vovel")
+// let vovel = "aeiou";
+// let c = 0;
+// for (let i = 0 ; i < chvovel.length ; i++){
+// if (vovel.includes(chvovel[i].toLowerCase())){
+//   c++
+// }
+// }
+// console.log( chvovel + "<\n>" + "The vovel word in this is : " + c );
+
+let newArr = [...new Set(num)]; // remove duplicates
+console.log(newArr);
+
+let new_ = [];
+
+for (let i = 0; i < num.length; i++) {
+  // remove duplicate
+  if (!new_.includes(num[i])) {
+    new_.push(num[i]);
+  }
+}
+console.log(new_);
+
+let newRr = num.reduce((item, index) => {
+  // remove duplicate
+  if (!item.includes(index)) {
+    item.push(index);
+  }
+  return item;
+}, []);
+
+console.log(newRr);
+
+const rnew = num.filter(
+  (item, index) => num.indexOf(item) !== index // show duplicate   
+);
+
+console.log(rnew);
+
+const ar = num.filter(
+  (
+    item,
+    index // remove duplicate
+  ) => num.indexOf(item) === index
+);
+
+console.log(ar);
+
+const rw = [
+  ...new Set(
+    num.filter(
+      (
+        item,
+        index // show only 1 same for each value duplicate
+      ) => num.indexOf(item) !== index
+    )
+  ),
+];
+
+console.log(rw);
+
+let word = ["hello and welcome"];
+
+// let words = word[0].split(" ");
+let words = word.toLocaleString().split(" ");
+
+words.forEach((word, index) => {
+  words[index] = word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+});
+console.log(words.join(" "));
 
 
